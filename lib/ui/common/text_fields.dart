@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class ElectraTextField extends StatelessWidget {
+class BrosDTextField extends StatelessWidget {
   final TextEditingController? controller;
   final String? hint;
   final void Function(String)? onChanged;
@@ -30,7 +30,7 @@ class ElectraTextField extends StatelessWidget {
   final InputBorder? border;
   final String? initialValue;
   final EdgeInsetsGeometry? contentPadding;
-  const ElectraTextField({
+  const BrosDTextField({
     this.controller,
     this.hint,
     this.onChanged,

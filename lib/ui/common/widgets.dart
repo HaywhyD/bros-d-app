@@ -258,53 +258,56 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
         if (isSmallScreen) {
           return Builder(
             builder: (context) {
-              return AppBar(
-                backgroundColor: Colors.white,
-                elevation: widget.isSticky ? 4.0 : 0.0,
-                title: Image.asset(
-                  Assets.logo,
-                  height: 30,
-                ),
-                actions: [
-                  IconButton(
-                    icon: Icon(_isMenuOpen ? Icons.close : Icons.menu),
-                    onPressed: () {
-                      setState(() {
-                        _isMenuOpen = !_isMenuOpen;
-                      });
-                      if (_isMenuOpen) {
-                        _showMobileMenu(context);
-                      } else {
-                        _removeOverlay();
-                      }
-                    },
+              return SizedBox(
+                height: 90,
+                child: AppBar(
+                  backgroundColor: Colors.white,
+                  elevation: widget.isSticky ? 4.0 : 0.0,
+                  title: SvgPicture.asset(
+                    Assets.logo2,
+                    height: 30,
                   ),
-                ],
-                bottom: PreferredSize(
-                  preferredSize: Size.fromHeight(40),
-                  child: Container(
-                    color: AppColor.primaryColor,
-                    height: 40,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(
-                          height: 30,
-                          width: size.width * 0.5,
-                          child: ButtonWidget(
-                            backgroundColor: Colors.white,
-                            onPressed: () {},
-                            borderRadius: BorderRadius.circular(20.r),
-                            child: Text(
-                              'Download Now',
-                              style: textTheme.bodyLarge?.copyWith(
-                                color: AppColor.secondaryColor,
-                                fontSize: 12,
+                  actions: [
+                    IconButton(
+                      icon: Icon(_isMenuOpen ? Icons.close : Icons.menu),
+                      onPressed: () {
+                        setState(() {
+                          _isMenuOpen = !_isMenuOpen;
+                        });
+                        if (_isMenuOpen) {
+                          _showMobileMenu(context);
+                        } else {
+                          _removeOverlay();
+                        }
+                      },
+                    ),
+                  ],
+                  bottom: PreferredSize(
+                    preferredSize: Size.fromHeight(40),
+                    child: Container(
+                      color: AppColor.primaryColor,
+                      height: 40,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 30,
+                            width: size.width * 0.5,
+                            child: ButtonWidget(
+                              backgroundColor: Colors.white,
+                              onPressed: () {},
+                              borderRadius: BorderRadius.circular(20.r),
+                              child: Text(
+                                'Download Now',
+                                style: textTheme.bodyLarge?.copyWith(
+                                  color: AppColor.secondaryColor,
+                                  fontSize: 12,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -312,121 +315,127 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
             },
           );
         }
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: isMediumScreen ? 20 : 40, vertical: 10),
-              color: Colors.white,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  isMediumScreen
-                      ? IconButton(
-                          icon: Icon(Icons.search),
-                          onPressed: () {},
-                        )
-                      : SizedBox(
-                          width: screenWidth * 0.3,
-                          child: BrosDTextField(
-                            suffixIcon: Icon(Icons.search),
+        return SizedBox(
+          height: 150,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                height: 70,
+                padding: EdgeInsets.symmetric(
+                    horizontal: isMediumScreen ? 20 : 40, vertical: 10),
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    isMediumScreen
+                        ? IconButton(
+                            icon: Icon(Icons.search),
+                            onPressed: () {},
+                          )
+                        : SizedBox(
+                            width: screenWidth * 0.3,
+                            child: BrosDTextField(
+                              suffixIcon: Icon(Icons.search),
+                            ),
                           ),
+                    Row(
+                      children: [
+                        if (!isMediumScreen)
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Welcome Amanda Now',
+                                style: textTheme.bodyLarge?.copyWith(
+                                  color: AppColor.primaryColor,
+                                ),
+                              ),
+                              Text(
+                                formatDateTime(DateTime.now()),
+                                style: textTheme.bodyMedium
+                                    ?.copyWith(fontSize: 16.sp),
+                              ),
+                            ],
+                          ),
+                        SizedBox(width: isMediumScreen ? 20 : 100),
+                        SvgPicture.asset(Assets.notificationIcon),
+                        SizedBox(width: isMediumScreen ? 20 : 50),
+                        Image.asset(
+                          Assets.appIcon,
+                          width: isMediumScreen ? 40.w : 64.w,
                         ),
-                  Row(
-                    children: [
-                      if (!isMediumScreen)
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Welcome Amanda Now',
-                              style: textTheme.bodyLarge?.copyWith(
-                                color: AppColor.primaryColor,
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: isMediumScreen ? 20 : 40, vertical: 10),
+                  color: AppColor.primaryColor,
+                  child: SafeArea(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // Logo
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 8.0),
+                            child: SvgPicture.asset(
+                              Assets.logo,
+                              height: 40,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: isMediumScreen
+                                  ? [
+                                      _buildMenuItem('Home', null),
+                                      _buildMenuItem('Menu ▼', 'product'),
+                                    ]
+                                  : [
+                                      _buildMenuItem('Home', null),
+                                      _buildMenuItem('Product ▼', 'product'),
+                                      _buildMenuItem('Company ▼', 'company'),
+                                      _buildMenuItem('Help ▼', 'help'),
+                                    ],
+                            ),
+                          ),
+
+                          SizedBox(
+                            width: isMediumScreen
+                                ? screenWidth * 0.2
+                                : screenWidth * 0.1,
+                            height: 40.h,
+                            child: ButtonWidget(
+                              backgroundColor: Colors.white,
+                              onPressed: () {},
+                              child: Text(
+                                'Download Now',
+                                style: textTheme.displayLarge?.copyWith(
+                                  color: AppColor.secondaryColor,
+                                  fontSize: isMediumScreen ? 14 : 16,
+                                ),
                               ),
                             ),
-                            Text(
-                              formatDateTime(DateTime.now()),
-                              style: textTheme.bodyMedium
-                                  ?.copyWith(fontSize: 16.sp),
-                            ),
-                          ],
-                        ),
-                      SizedBox(width: isMediumScreen ? 20 : 100),
-                      SvgPicture.asset(Assets.notificationIcon),
-                      SizedBox(width: isMediumScreen ? 20 : 50),
-                      Image.asset(
-                        Assets.appIcon,
-                        width: isMediumScreen ? 40.w : 64.w,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: isMediumScreen ? 20 : 40, vertical: 10),
-              color: AppColor.primaryColor,
-              child: SafeArea(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      // Logo
-                      Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: SvgPicture.asset(
-                          Assets.logo,
-                          height: 40,
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-
-                      Expanded(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: isMediumScreen
-                              ? [
-                                  _buildMenuItem('Home', null),
-                                  _buildMenuItem('Menu ▼', 'product'),
-                                ]
-                              : [
-                                  _buildMenuItem('Home', null),
-                                  _buildMenuItem('Product ▼', 'product'),
-                                  _buildMenuItem('Company ▼', 'company'),
-                                  _buildMenuItem('Help ▼', 'help'),
-                                ],
-                        ),
-                      ),
-
-                      SizedBox(
-                        width: isMediumScreen
-                            ? screenWidth * 0.2
-                            : screenWidth * 0.1,
-                        height: 40.h,
-                        child: ButtonWidget(
-                          backgroundColor: Colors.white,
-                          onPressed: () {},
-                          child: Text(
-                            'Download Now',
-                            style: textTheme.displayLarge?.copyWith(
-                              color: AppColor.secondaryColor,
-                              fontSize: isMediumScreen ? 14 : 16,
-                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         );
       },
     );
@@ -1169,6 +1178,7 @@ class ServiceCategoryItem extends StatelessWidget {
                       Expanded(
                         flex: 7, // 70% for image
                         child: Container(
+                          width: double.infinity,
                           margin: EdgeInsets.all(isSmallScreen ? 4.0 : 8.0),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -1186,18 +1196,6 @@ class ServiceCategoryItem extends StatelessWidget {
                             child: Image.asset(
                               category.imageUrl,
                               fit: BoxFit.contain,
-                              errorBuilder: (context, error, stackTrace) {
-                                return Container(
-                                  color: Colors.grey.shade200,
-                                  child: Center(
-                                    child: Icon(
-                                      Icons.image_not_supported,
-                                      color: Colors.grey.shade400,
-                                      size: isSmallScreen ? 30.0 : 40.0,
-                                    ),
-                                  ),
-                                );
-                              },
                             ),
                           ),
                         ),

@@ -7,4 +7,3 @@
 
 [plugins.inputs]
   channel = "stable"
-  version = "3.27.0"

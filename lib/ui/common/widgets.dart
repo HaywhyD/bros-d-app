@@ -259,8 +259,10 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
           return Builder(
             builder: (context) {
               return SizedBox(
-                height: 90,
+                height: 100,
                 child: AppBar(
+                  toolbarHeight: 100,
+                  centerTitle: true,
                   backgroundColor: Colors.white,
                   elevation: widget.isSticky ? 4.0 : 0.0,
                   title: SvgPicture.asset(
@@ -283,10 +285,10 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
                     ),
                   ],
                   bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(40),
+                    preferredSize: Size.fromHeight(50),
                     child: Container(
                       color: AppColor.primaryColor,
-                      height: 40,
+                      height: 50,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -749,13 +751,13 @@ class BrosDFooter extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15),
-            _buildBrosDTextField('Full Name'),
+            _buildBrosDTextField('Full Name', isSmallScreen),
             SizedBox(height: 8),
-            _buildBrosDTextField('Address'),
+            _buildBrosDTextField('Address', isSmallScreen),
             SizedBox(height: 8),
-            _buildBrosDTextField('Email'),
+            _buildBrosDTextField('Email', isSmallScreen),
             SizedBox(height: 8),
-            _buildBrosDTextField('Phone Number'),
+            _buildBrosDTextField('Phone Number', isSmallScreen),
             SizedBox(height: 10),
             SizedBox(
               height: 50,
@@ -854,11 +856,11 @@ class BrosDFooter extends StatelessWidget {
                         ),
                       ),
                       SizedBox(height: 15),
-                      _buildBrosDTextField('Full Name'),
+                      _buildBrosDTextField('Full Name', isSmallScreen),
                       SizedBox(height: 8),
-                      _buildBrosDTextField('Email'),
+                      _buildBrosDTextField('Email', isSmallScreen),
                       SizedBox(height: 8),
-                      _buildBrosDTextField('Phone Number'),
+                      _buildBrosDTextField('Phone Number', isSmallScreen),
                       SizedBox(height: 10),
                       SizedBox(
                         height: 50,
@@ -983,13 +985,13 @@ class BrosDFooter extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 15),
-                    _buildBrosDTextField('Full Name'),
+                    _buildBrosDTextField('Full Name', isSmallScreen),
                     SizedBox(height: 8),
-                    _buildBrosDTextField('Address'),
+                    _buildBrosDTextField('Address', isSmallScreen),
                     SizedBox(height: 8),
-                    _buildBrosDTextField('Email'),
+                    _buildBrosDTextField('Email', isSmallScreen),
                     SizedBox(height: 8),
-                    _buildBrosDTextField('Phone Number'),
+                    _buildBrosDTextField('Phone Number', isSmallScreen),
                     SizedBox(height: 10),
                     SizedBox(
                       height: 50,
@@ -1085,9 +1087,9 @@ class BrosDFooter extends StatelessWidget {
     );
   }
 
-  Widget _buildBrosDTextField(String placeholder) {
+  Widget _buildBrosDTextField(String placeholder, bool isSmallScreen) {
     return SizedBox(
-      width: screenWidth * 0.3,
+      width: isSmallScreen ? screenWidth * 0.8 : screenWidth * 0.3,
       child: BrosDTextField(
         hint: placeholder,
       ),

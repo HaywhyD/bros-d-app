@@ -29,23 +29,23 @@ final ThemeData LightTheme = ThemeData(
   primaryColor: AppColor.primaryColor,
   brightness: Brightness.light,
   textTheme: TextTheme(
-    displayLarge: GoogleFonts.poppins(
-        color: Color(0xFF3C3C3C), fontSize: 24, fontWeight: FontWeight.w600),
-    displayMedium: GoogleFonts.poppins(
-        color: Color(0xFF3C3C3C), fontSize: 20, fontWeight: FontWeight.w500),
-    displaySmall: GoogleFonts.poppins(
-        color: Color(0xFF3C3C3C), fontSize: 18, fontWeight: FontWeight.w400),
-    bodyLarge: GoogleFonts.montserrat(
-        color: Color(0xFF3C3C3C), fontSize: 16, fontWeight: FontWeight.w500),
-    bodyMedium: GoogleFonts.montserrat(
-        color: Color(0xFF3C3C3C), fontSize: 14, fontWeight: FontWeight.w400),
-    bodySmall: GoogleFonts.montserrat(
-        color: Color(0xFF3C3C3C), fontSize: 12, fontWeight: FontWeight.w300),
+    displayLarge: GoogleFonts.monda(
+        color: Color(0xFF3C3C3C), fontSize: 24, fontWeight: FontWeight.w700),
+    displayMedium: GoogleFonts.monda(
+        color: Color(0xFF3C3C3C), fontSize: 20, fontWeight: FontWeight.w600),
+    displaySmall: GoogleFonts.monda(
+        color: Color(0xFF3C3C3C), fontSize: 18, fontWeight: FontWeight.w500),
+    bodyLarge: GoogleFonts.poppins(
+        color: Color(0xFF3C3C3C), fontSize: 16, fontWeight: FontWeight.w700),
+    bodyMedium: GoogleFonts.poppins(
+        color: Color(0xFF3C3C3C), fontSize: 14, fontWeight: FontWeight.w500),
+    bodySmall: GoogleFonts.poppins(
+        color: Color(0xFF3C3C3C), fontSize: 12, fontWeight: FontWeight.w400),
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: Color(0xFFFFFFFF),
     foregroundColor: Color(0xFF3C3C3C),
-    titleTextStyle: GoogleFonts.poppins(
+    titleTextStyle: GoogleFonts.monda(
         color: Color(0xFF3C3C3C), fontSize: 16, fontWeight: FontWeight.w600),
     centerTitle: true,
     elevation: 0.0,
@@ -71,12 +71,12 @@ final ThemeData LightTheme = ThemeData(
       textStyle: WidgetStateProperty.resolveWith<TextStyle>(
         (Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
-            return GoogleFonts.poppins(
+            return GoogleFonts.monda(
                 color: Colors.white54,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600);
           }
-          return GoogleFonts.poppins(
+          return GoogleFonts.monda(
               color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w600);
         },
       ),
@@ -118,7 +118,7 @@ final ThemeData LightTheme = ThemeData(
     ),
     backgroundColor: WidgetStateProperty.all(Colors.transparent),
     textStyle: WidgetStateProperty.all(
-      GoogleFonts.poppins(
+      GoogleFonts.monda(
           color: AppColor.primaryColor,
           fontSize: 16.0,
           fontWeight: FontWeight.w600),
@@ -142,9 +142,9 @@ final ThemeData LightTheme = ThemeData(
   ),
   dialogTheme: DialogTheme(
     backgroundColor: Colors.white,
-    titleTextStyle: GoogleFonts.poppins(
+    titleTextStyle: GoogleFonts.monda(
         color: Color(0xFF3C3C3C), fontSize: 18, fontWeight: FontWeight.w600),
-    contentTextStyle: GoogleFonts.poppins(
+    contentTextStyle: GoogleFonts.monda(
         color: Color(0xFF3C3C3C), fontSize: 14, fontWeight: FontWeight.w500),
   ),
   textButtonTheme: TextButtonThemeData(
@@ -157,7 +157,7 @@ final ThemeData LightTheme = ThemeData(
         Colors.transparent,
       ),
       textStyle: WidgetStateProperty.all(
-        GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600),
+        GoogleFonts.monda(fontSize: 14, fontWeight: FontWeight.w600),
       ),
     ),
   ),
@@ -175,29 +175,29 @@ final ThemeData DarkTheme = ThemeData(
   primaryColor: AppColor.primaryColor,
   brightness: Brightness.dark,
   textTheme: TextTheme(
-    displayLarge: GoogleFonts.poppins(
+    displayLarge: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 24, fontWeight: FontWeight.w600),
-    displayMedium: GoogleFonts.poppins(
+    displayMedium: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 20, fontWeight: FontWeight.w500),
-    displaySmall: GoogleFonts.poppins(
+    displaySmall: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 18, fontWeight: FontWeight.w400),
-    headlineLarge: GoogleFonts.poppins(
+    headlineLarge: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 24, fontWeight: FontWeight.w600),
-    headlineMedium: GoogleFonts.poppins(
+    headlineMedium: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 20, fontWeight: FontWeight.w600),
-    headlineSmall: GoogleFonts.poppins(
+    headlineSmall: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 16, fontWeight: FontWeight.w600),
-    bodyLarge: GoogleFonts.montserrat(
+    bodyLarge: GoogleFonts.poppins(
         color: Color(0xFFE3E3E3), fontSize: 16, fontWeight: FontWeight.w500),
-    bodyMedium: GoogleFonts.montserrat(
+    bodyMedium: GoogleFonts.poppins(
         color: Color(0xFFE3E3E3), fontSize: 14, fontWeight: FontWeight.w500),
-    bodySmall: GoogleFonts.montserrat(
+    bodySmall: GoogleFonts.poppins(
         color: Color(0xFFE3E3E3), fontSize: 12, fontWeight: FontWeight.w500),
   ),
   appBarTheme: AppBarTheme(
     backgroundColor: Colors.transparent,
     foregroundColor: Color(0xFFE3E3E3),
-    titleTextStyle: GoogleFonts.poppins(
+    titleTextStyle: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 16, fontWeight: FontWeight.w600),
     centerTitle: true,
     elevation: 0.0,
@@ -223,12 +223,12 @@ final ThemeData DarkTheme = ThemeData(
       textStyle: WidgetStateProperty.resolveWith<TextStyle>(
         (Set<WidgetState> states) {
           if (states.contains(WidgetState.disabled)) {
-            return GoogleFonts.poppins(
+            return GoogleFonts.monda(
                 color: Colors.white54,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600);
           }
-          return GoogleFonts.poppins(
+          return GoogleFonts.monda(
               color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w600);
         },
       ),
@@ -249,7 +249,7 @@ final ThemeData DarkTheme = ThemeData(
     ),
     backgroundColor: WidgetStateProperty.all(Colors.transparent),
     textStyle: WidgetStateProperty.all(
-      GoogleFonts.poppins(
+      GoogleFonts.monda(
           color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w600),
     ),
     shape: WidgetStateProperty.all(
@@ -270,9 +270,9 @@ final ThemeData DarkTheme = ThemeData(
   ),
   dialogTheme: DialogTheme(
     backgroundColor: Color(0xFF0C0C0C),
-    titleTextStyle: GoogleFonts.poppins(
+    titleTextStyle: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 18, fontWeight: FontWeight.w600),
-    contentTextStyle: GoogleFonts.poppins(
+    contentTextStyle: GoogleFonts.monda(
         color: Color(0xFFE3E3E3), fontSize: 14, fontWeight: FontWeight.w500),
   ),
   textButtonTheme: TextButtonThemeData(
@@ -285,7 +285,7 @@ final ThemeData DarkTheme = ThemeData(
         Colors.transparent,
       ),
       textStyle: WidgetStateProperty.all(
-        GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w600),
+        GoogleFonts.monda(fontSize: 14, fontWeight: FontWeight.w600),
       ),
     ),
   ),

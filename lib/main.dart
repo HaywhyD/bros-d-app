@@ -19,6 +19,10 @@ void main() async {
   );
 }
 
+late TextTheme textTheme;
+late double screenWidth;
+late double screenHeight;
+
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
@@ -30,6 +34,9 @@ class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    textTheme = Theme.of(context).textTheme;
+    screenHeight = MediaQuery.sizeOf(context).height;
+    screenWidth = MediaQuery.sizeOf(context).width;
     return ScreenUtilInit(
       builder: (ctx, child) {
         return MaterialApp.router(

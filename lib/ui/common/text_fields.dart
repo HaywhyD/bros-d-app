@@ -90,7 +90,7 @@ class BrosDTextField extends StatelessWidget {
         prefixText: prefixText,
         contentPadding: contentPadding ??
             const EdgeInsets.symmetric(
-                vertical: 15,
+                vertical: 10,
                 horizontal: 15.0), // Adjusting padding to match the design
         filled: true,
         fillColor: Colors.white,

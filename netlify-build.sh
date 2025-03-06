@@ -1,8 +1,14 @@
 #!/bin/bash
 set -e
 
-git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter
-export PATH="$PATH:$HOME/flutter/bin"
+
+if ! command -v flutter &> /dev/null; then
+  echo "Installing Flutter..."
+  git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter
+  export PATH="$PATH:$HOME/flutter/bin"
+else
+  echo "Flutter is already installed."
+fi
 
 flutter --version
 

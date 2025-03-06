@@ -256,65 +256,61 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
         // Update previous width for change detection
         _previousWidth = constraints.maxWidth;
         if (isSmallScreen) {
-          return Builder(
-            builder: (context) {
-              return SizedBox(
-                height: 100,
-                child: AppBar(
-                  toolbarHeight: 100,
-                  centerTitle: true,
-                  backgroundColor: Colors.white,
-                  elevation: widget.isSticky ? 4.0 : 0.0,
-                  title: SvgPicture.asset(
-                    Assets.logo2,
-                    height: 30,
-                  ),
-                  actions: [
-                    IconButton(
-                      icon: Icon(_isMenuOpen ? Icons.close : Icons.menu),
-                      onPressed: () {
-                        setState(() {
-                          _isMenuOpen = !_isMenuOpen;
-                        });
-                        if (_isMenuOpen) {
-                          _showMobileMenu(context);
-                        } else {
-                          _removeOverlay();
-                        }
-                      },
-                    ),
-                  ],
-                  bottom: PreferredSize(
-                    preferredSize: Size.fromHeight(50),
-                    child: Container(
-                      color: AppColor.primaryColor,
-                      height: 50,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 30,
-                            width: size.width * 0.5,
-                            child: ButtonWidget(
-                              backgroundColor: Colors.white,
-                              onPressed: () {},
-                              borderRadius: BorderRadius.circular(20.r),
-                              child: Text(
-                                'Download Now',
-                                style: textTheme.bodyLarge?.copyWith(
-                                  color: AppColor.secondaryColor,
-                                  fontSize: 12,
-                                ),
-                              ),
+          return SizedBox(
+            height: 100,
+            child: AppBar(
+              centerTitle: true,
+              backgroundColor: Colors.white,
+              elevation: widget.isSticky ? 4.0 : 0.0,
+              title: Image.asset(
+                Assets.logo2,
+                height: 30,
+                width: 120,
+              ),
+              actions: [
+                IconButton(
+                  icon: Icon(_isMenuOpen ? Icons.close : Icons.menu),
+                  onPressed: () {
+                    setState(() {
+                      _isMenuOpen = !_isMenuOpen;
+                    });
+                    if (_isMenuOpen) {
+                      _showMobileMenu(context);
+                    } else {
+                      _removeOverlay();
+                    }
+                  },
+                ),
+              ],
+              bottom: PreferredSize(
+                preferredSize: Size.fromHeight(50),
+                child: Container(
+                  color: AppColor.primaryColor,
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 30,
+                        width: size.width * 0.5,
+                        child: ButtonWidget(
+                          backgroundColor: Colors.white,
+                          onPressed: () {},
+                          borderRadius: BorderRadius.circular(20.r),
+                          child: Text(
+                            'Download Now',
+                            style: textTheme.bodyLarge?.copyWith(
+                              color: AppColor.secondaryColor,
+                              fontSize: 12,
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              );
-            },
+              ),
+            ),
           );
         }
         return SizedBox(

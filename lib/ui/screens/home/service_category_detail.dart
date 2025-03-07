@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../main.dart';
 import '../../../models/service_categories.dart';
 import '../../colors/colors.dart';
 import '../../common/widgets.dart';
@@ -70,7 +69,7 @@ class _CategoryDetailsWidgetState extends State<CategoryDetailsWidget>
         ? screenSize.width * 0.9
         : isMediumScreen
             ? screenSize.width * 0.8
-            : screenSize.width * 0.7;
+            : screenSize.width * 0.5;
 
     final dialogHeight =
         isSmallScreen ? screenSize.height * 0.8 : screenSize.height * 0.9;
@@ -221,36 +220,6 @@ class _CategoryDetailsWidgetState extends State<CategoryDetailsWidget>
                                 ],
                               ),
                             ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: isSmallScreen ? 12 : 16,
-                      ),
-                      decoration: BoxDecoration(
-                        color: AppColor.primaryColor.withOpacity(0.2),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(14),
-                          bottomRight: Radius.circular(14),
-                        ),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            width: screenWidth * 0.2,
-                            child: ButtonWidget(
-                              onPressed: _close,
-                              child: Text(
-                                "Close",
-                                style: TextStyle(
-                                  fontSize: isSmallScreen ? 14.sp : 16.sp,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
                   ],
                 ),

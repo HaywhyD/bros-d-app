@@ -3,9 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../main.dart';
 import '../../../models/service_categories.dart';
-import '../../colors/colors.dart';
 import '../../common/widgets.dart';
-import 'service_category_detail.dart';
 
 class ServiceCategoriesGrid extends StatelessWidget {
   final List<ServiceCategories> categories;

@@ -580,7 +580,6 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
     final Size size = renderBox.size;
     final Offset position = renderBox.localToGlobal(Offset.zero);
     final screenWidth = MediaQuery.of(context).size.width;
-    final isSmallScreen = screenWidth < 600;
     final isMediumScreen = screenWidth >= 600 && screenWidth < 900;
 
     List<String> items = [];

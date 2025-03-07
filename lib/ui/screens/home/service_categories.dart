@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../main.dart';
 import '../../../models/service_categories.dart';
+import '../../colors/colors.dart';
 import '../../common/widgets.dart';
+import 'service_category_detail.dart';
 
 class ServiceCategoriesGrid extends StatelessWidget {
   final List<ServiceCategories> categories;
@@ -45,7 +47,7 @@ class ServiceCategoriesGrid extends StatelessWidget {
               crossAxisCount: crossAxisCount,
               childAspectRatio: 1,
               crossAxisSpacing: 20.w,
-              mainAxisSpacing: 100.h,
+              mainAxisSpacing: 14.h,
             ),
             itemCount: categories.length,
             itemBuilder: (context, index) {

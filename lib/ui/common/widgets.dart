@@ -8,6 +8,7 @@ import '../../core/assets/assets.dart';
 import '../../core/utils/functions.dart';
 import '../../models/professionals.dart';
 import '../colors/colors.dart';
+import '../screens/home/service_category_detail.dart';
 import 'text_fields.dart';
 
 class ButtonWidget extends StatelessWidget {
@@ -143,21 +144,9 @@ class ProfessionalCard extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(imageSize / 2),
-                child: Image.network(
+                child: Image.asset(
                   professional.imageUrl,
                   fit: BoxFit.cover,
-                  errorBuilder: (context, error, stackTrace) {
-                    return Container(
-                      color: Colors.grey.shade200,
-                      child: Center(
-                        child: Icon(
-                          Icons.person,
-                          color: Colors.grey.shade400,
-                          size: isSmallScreen ? 30.r : 40.r,
-                        ),
-                      ),
-                    );
-                  },
                 ),
               ),
             ),
@@ -1143,16 +1132,14 @@ class ServiceCategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Use LayoutBuilder for more accurate responsive sizing
         final size = MediaQuery.of(context).size;
         final isSmallScreen = size.width < 600;
         final isMediumScreen = size.width >= 600 && size.width < 900;
 
-        // Calculate proportional dimensions
         final containerWidth =
             isSmallScreen ? constraints.maxWidth : constraints.maxWidth * 0.9;
         final containerHeight = isSmallScreen
-            ? containerWidth * 1.2 // Aspect ratio control
+            ? containerWidth * 1.2
             : isMediumScreen
                 ? containerWidth * 1.1
                 : containerWidth;
@@ -1160,12 +1147,23 @@ class ServiceCategoryItem extends StatelessWidget {
         final ratingSize = isSmallScreen ? 32.0 : 40.0;
 
         return InkWell(
-          onTap: onTap,
+          onTap: () {
+            final RenderBox renderBox = context.findRenderObject() as RenderBox;
+            final position = renderBox.localToGlobal(Offset.zero);
+            final size = renderBox.size;
+
+            CategoryDetailOverlay.show(
+              context: context,
+              category: category,
+              position: position,
+              size: size,
+            );
+          },
           child: Container(
             width: double.infinity,
             constraints: BoxConstraints(
               maxHeight: containerHeight,
-              minHeight: 100, // Ensure minimum size
+              minHeight: 100,
             ),
             child: Padding(
               padding: EdgeInsets.all(isSmallScreen ? 4.0 : 8.0),
@@ -1230,6 +1228,126 @@ class ServiceCategoryItem extends StatelessWidget {
                       child: Center(
                         child: Text(
                           "${category.rating}",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: isSmallScreen ? 14.0 : 16.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class ServiceCategoryDetailItem extends StatelessWidget {
+  final ServiceCategoryDetail detail;
+  final VoidCallback? onTap;
+
+  const ServiceCategoryDetailItem({
+    super.key,
+    required this.detail,
+    this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final size = MediaQuery.of(context).size;
+        final isSmallScreen = size.width < 600;
+        final isMediumScreen = size.width >= 600 && size.width < 900;
+
+        final containerWidth =
+            isSmallScreen ? constraints.maxWidth : constraints.maxWidth * 0.7;
+        final containerHeight = isSmallScreen
+            ? containerWidth * 0.9
+            : isMediumScreen
+                ? containerWidth * 1
+                : containerWidth;
+
+        final ratingSize = isSmallScreen ? 32.0 : 40.0;
+
+        return InkWell(
+          onTap: onTap,
+          child: Container(
+            width: double.infinity,
+            constraints: BoxConstraints(
+              maxHeight: containerHeight,
+              minHeight: 100,
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(isSmallScreen ? 4.0 : 8.0),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        flex: 7, // 70% for image
+                        child: Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.all(isSmallScreen ? 4.0 : 8.0),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            border: Border.all(color: Colors.white, width: 1),
+                            borderRadius: BorderRadius.circular(16.0),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.05),
+                                blurRadius: 8,
+                                offset: Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(16.0),
+                            child: Image.asset(
+                              detail.imageUrl,
+                              fit: BoxFit.contain,
+                              alignment: Alignment.topCenter,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 3, // 30% for text
+                        child: Padding(
+                          padding:
+                              EdgeInsets.only(top: isSmallScreen ? 8.0 : 12.0),
+                          child: Text(
+                            detail.title,
+                            textAlign: TextAlign.center,
+                            style: textTheme.bodyLarge?.copyWith(
+                                fontSize: isSmallScreen ? 12.0 : 14.0,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Positioned(
+                    top: 0,
+                    right: 0,
+                    child: Container(
+                      width: ratingSize,
+                      height: ratingSize,
+                      decoration: BoxDecoration(
+                          color: Color(0xFF6AB04C),
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white, width: 1)),
+                      child: Center(
+                        child: Text(
+                          "${detail.rating}",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

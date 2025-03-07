@@ -24,10 +24,66 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<ServiceCategories> _serviceCategories = [
     const ServiceCategories(
-      title: "Conruction and Building",
-      imageUrl: Assets.category1,
-      rating: 4,
-    ),
+        title: "Conruction and Building",
+        imageUrl: Assets.category1,
+        rating: 4,
+        details: [
+          ServiceCategoryDetail(
+            title: "Bricklayers",
+            imageUrl: Assets.bricklayer,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Carpenters",
+            imageUrl: Assets.carpenter,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Civil Engineering",
+            imageUrl: Assets.engineer,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Plumbers",
+            imageUrl: Assets.plumber,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Welders",
+            imageUrl: Assets.welder,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Roofers",
+            imageUrl: Assets.roof,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Tilers",
+            imageUrl: Assets.tiler,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Painter",
+            imageUrl: Assets.painter,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "POP Screeding",
+            imageUrl: Assets.pop,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Concrete Work",
+            imageUrl: Assets.concrete,
+            rating: 4,
+          ),
+          ServiceCategoryDetail(
+            title: "Scaffolding",
+            imageUrl: Assets.scaffold,
+            rating: 4,
+          ),
+        ]),
     const ServiceCategories(
       title: "Domestic Services",
       imageUrl: Assets.category2,

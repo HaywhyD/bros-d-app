@@ -27,6 +27,17 @@ class Assets {
   static const String heroImage = '$pngPath/hero-image.png';
   static const String professionalImage = '$pngPath/professional.png';
   static const String mapImage = '$pngPath/map.png';
+  static const String bricklayer = '$pngPath/bricklayer.png';
+  static const String carpenter = '$pngPath/carpenter.png';
+  static const String concrete = '$pngPath/concrete.png';
+  static const String engineer = '$pngPath/engineer.png';
+  static const String painter = '$pngPath/painter.png';
+  static const String plumber = '$pngPath/plumber.png';
+  static const String pop = '$pngPath/pop.png';
+  static const String roof = '$pngPath/roof.png';
+  static const String scaffold = '$pngPath/scaffold.png';
+  static const String tiler = '$pngPath/tiler.png';
+  static const String welder = '$pngPath/welder.png';
 
 // Svgs
   static const String notificationIcon = '$svgPath/notification.svg';

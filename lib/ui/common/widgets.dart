@@ -594,7 +594,7 @@ class _BrosDAppBarState extends State<BrosDAppBar> {
         'Team',
         'Careers',
         'News',
-        '---', // Divider
+        '---',
         'FAQs',
         'Support',
         'Contact Us',
